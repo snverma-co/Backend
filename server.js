@@ -10,6 +10,7 @@ import axios from 'axios';
 dotenv.config();
 
 const app = express();
+const PORT = process.env.PORT || 3000;
 
 app.use(cors());
 // Increase payload size limit for file uploads
@@ -17,7 +18,12 @@ app.use(express.json({ limit: '5mb' }));
 app.use(express.urlencoded({ limit: '5mb', extended: true }));
 
 // Mount API routes
-app.use(routes);
+app.use('/api', routes);
+
+// Root route handler
+app.get('/', (req, res) => {
+  res.json({ message: 'Backend API is running' });
+});
 
 // Add specific error handling for payload size errors
 app.use((err, req, res, next) => {
@@ -252,7 +258,7 @@ app.post('/api/icon-contact', async (req, res) => {
   }
 });
 
-const PORT = process.env.PORT || 3000;
+// Start the server
 app.listen(PORT, () => {
-  console.log(`Server running on port ${PORT}`);
+  console.log(`Server is running on port ${PORT}`);
 });
