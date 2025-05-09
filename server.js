@@ -11,7 +11,8 @@ const app = express();
 const PORT = process.env.PORT || 3000;
 
 app.use(cors({
-  origin: ['https://www.snvcas.com', 'http://localhost:5173'],
+  origin: ['https://www.snvcas.com', 'http://localhost:5173', 'https://backend-tan-seven-73.vercel.app'],
+  methods: ['GET', 'POST'],
   credentials: true
 }));
 // Increase payload size limit for file uploads
@@ -23,7 +24,7 @@ app.use('/api', routes);
 
 // Root route handler
 app.get('/', (req, res) => {
-  res.json({ message: 'Backend API is running well' });
+  res.json({ message: 'Backend API is running' });
 });
 
 // Add specific error handling for payload size errors
