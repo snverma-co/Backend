@@ -5,8 +5,6 @@ import connectDB from './src/config/db.js';
 import { CareerForm, ContactForm, Newsletter, IconContactForm } from './src/models/index.js';
 import routes from './src/routes/index.js';
 import dotenv from 'dotenv';
-import axios from 'axios';
-
 dotenv.config();
 
 const app = express();
@@ -116,7 +114,8 @@ app.post('/api/career', async (req, res) => {
   }
 });
 
-// News API endpoint
+// News API endpoint - Temporarily disabled due to API key requirements
+/*
 app.get('/api/news', async (req, res) => {
   try {
     const NEWS_API_KEY = process.env.NEWS_API_KEY || '054c906f42244f30ac32cd97a7edff27';
@@ -148,6 +147,7 @@ app.get('/api/news', async (req, res) => {
     res.status(500).json({ error: 'Failed to fetch news' });
   }
 });
+*/
 
 // Newsletter endpoint
 app.post('/api/newsletter', async (req, res) => {
