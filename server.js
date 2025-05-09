@@ -23,7 +23,7 @@ app.use('/api', routes);
 
 // Root route handler
 app.get('/', (req, res) => {
-  res.json({ message: 'Backend API is running' });
+  res.json({ message: 'Backend API is running well' });
 });
 
 // Add specific error handling for payload size errors
